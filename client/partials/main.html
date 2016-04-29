@@ -1,0 +1,96 @@
+<div class='background2' ng-controller = 'MainController'>
+	<nav>
+		<div class = 'nav-wrapper red lighten-2'>
+			<p style='font-size:35px; margin-left:15px;' class='thin'>Current Collaborators:  </p>
+			 <a class="waves-effect waves-light btn modal-trigger red lighten-2" href="#modal1" modal>Info</a>
+		</div>
+	</nav>
+	<div id='instruments'>
+		<div class='sidehead'>
+				<p>Controls</p>
+			</div>
+		<div class='instrumentModule'>
+			<p class='range-field'>
+			Volume: {{volume}} % <input type="range" min="0" max="100" ng-change="updateVolume(volume)" ng-model="volume" class="ng-valid ng-dirty">
+			</p>
+			<p class= 'range-field' ng-init='50'>
+			Tempo: {{tempo}} bpm<input type="range" min="65" max="160" ng-change="updateTempo()" ng-model="tempo" class="ng-valid ng-dirty">
+			</p>
+		</div>
+		<div class='instrumentButtons'>
+			<button class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("kick")'>Kick</button>
+			<button class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("snare")'>Snare</button>
+			<button class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("clap")'>Clap</button>
+			<button class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("high_tom")'>High Tom</button>
+			<button class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("low_tom")'>Low Tom</button>
+			<button class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("hi_hat")'>Hi Hat</button>
+		</div>
+		<!-- <div class='instrumentModule'>
+			<div class='sidehead'>
+				<p>Others</p>
+			</div>
+			<button class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("goat")'>Goat</button>
+		</div> -->
+	</div>
+	<div id='sequencer'>
+		<!-- <p> {{row}}</p> -->
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(1)'>
+			<div class='head'><p>1</p></div>
+		<div ng-class="{circle: currentBeat != '1', circle_red: currentBeat == '1'}" ></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(2)' >
+			<div class='head'><p>2</p></div>
+		<div ng-class="{circle: currentBeat != '2', circle_red: currentBeat == '2'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(3)'>
+			<div class='head'><p>3</p></div>
+		<div ng-class="{circle: currentBeat != '3', circle_red: currentBeat == '3'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(4)'>
+			<div class='head'><p>4</p></div>
+		<div ng-class="{circle: currentBeat != '4', circle_red: currentBeat == '4'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(5)'>
+			<div class='head'><p>5</p></div>
+		<div ng-class="{circle: currentBeat != '5', circle_red: currentBeat == '5'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(6)'>
+			<div class='head'><p>6</p></div>
+		<div ng-class="{circle: currentBeat != '6', circle_red: currentBeat == '6'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(7)'>
+			<div class='head'><p>7</p></div>
+		<div ng-class="{circle: currentBeat != '7', circle_red: currentBeat == '7'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(8)'>
+			<div class='head'><p>8</p></div>
+		<div ng-class="{circle: currentBeat != '8', circle_red: currentBeat == '8'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(9)'>
+			<div class='head'><p>9</p></div>
+		<div ng-class="{circle: currentBeat != '9', circle_red: currentBeat == '9'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(10)'>
+			<div class='head'><p>10</p></div>
+		<div ng-class="{circle: currentBeat != '10', circle_red: currentBeat == '10'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(11)'>
+			<div class='head'><p>11</p></div>
+		<div ng-class="{circle: currentBeat != '11', circle_red: currentBeat == '11'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(12)'>
+			<div class='head'><p>12</p></div>
+		<div ng-class="{circle: currentBeat != '12', circle_red: currentBeat == '12'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(13)'>
+			<div class='head'><p>13</p></div>
+		<div ng-class="{circle: currentBeat != '13', circle_red: currentBeat == '13'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(14)'>
+			<div class='head'><p>14</p></div>
+		<div ng-class="{circle: currentBeat != '14', circle_red: currentBeat == '14'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(15)'>
+			<div class='head'><p>15</p></div>
+		<div ng-class="{circle: currentBeat != '15', circle_red: currentBeat == '15'}"></div></div>
+		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(16)'>
+			<div class='head'><p>16</p></div>
+		<div ng-class="{circle: currentBeat != '16', circle_red: currentBeat == '16'}"></div></div>
+	</div>
+	<div id = 'controls'>
+		<button class='btn cyan lighten-1' ng-click='play()'>Play</button><button class='btn cyan lighten-1' ng-click ='stop()'>Stop</button>
+	</div>
+	<p style='color:red; float:right; margin-right:45px; margin-top:10px;' ng-bind="error"></p>
+	<div id="modal1" class="modal">
+    	<div class="modal-content">
+      		<h4>Collaborative Music</h4>
+     		<p>This is a simple single page web app built with Node, Angular, and Socket.io. Clicking on a note node will add a sample and play it in sequence. Play with your friends! </p>
+    	</div>
+  	</div>
+</div>
