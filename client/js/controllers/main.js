@@ -108,7 +108,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 				$scope.$apply();
 				console.log($scope.currentBeat);
 				if (count == 17) {
-					count = 0;
+					count = 1;
 					$scope.isLooping = true;
 					$scope.loop();
 				}
