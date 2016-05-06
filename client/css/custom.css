@@ -104,11 +104,17 @@ button{
 		vertical-align: top;
 		display:inline-block;
 		height: 100px;
-		width:335px;
+		width:280px;
 		margin: 10px 0px 0px 10px;
 	}
-		.instrumentButtons button{
-			padding-right:  15px;
+		.instrumentButtons #tab{
+			float: right;
+			height: 36px;
+			margin-left: 10px;
+			width:5px;
+		}
+		.instrumentButtons #button{
+			padding-right:  0px;
 			padding-left: 15px;
 			margin:0px 0px 10px 5px;
 			display: inline-block;

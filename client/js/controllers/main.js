@@ -12,6 +12,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 	$scope.tempo = 128;
 	$scope.currentBeat;
 	$scope.current_sound;
+	var sound_name;
 	$scope._playing = false;
 	$scope.error = "";
 	$scope.isLooping = false;
@@ -31,6 +32,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 
 //Select sound and play selected to user
 	$scope.sound = function (name){
+		sound_name = name;
 		_playing = true;
 		//change volume to current
 		howls['../beats/'+name+'.wav']._volume = $scope.volume/100;
@@ -43,6 +45,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 	}
 //Assign selected sound to nodes in sequence
 	$scope.assign = function (node){
+		console.log(sound_name)
 		var newsound = $scope.current_sound;
 		//For clarity
 		var node = node;
@@ -55,6 +58,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 				var exists = true;
 			}
 		}
+		//Assign values
 		if (exists == false){
 			if (newsound){
 				console.log("Node: " + node + ', sound: ' + newsound._src);
