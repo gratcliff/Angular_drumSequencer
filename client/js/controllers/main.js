@@ -29,7 +29,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 		howls[sounds[i]]._buffer = true;
 	}
 
-//Assign value to selected and play select to user
+//Select sound and play selected to user
 	$scope.sound = function (name){
 		_playing = true;
 		//change volume to current
@@ -41,33 +41,47 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 		$scope.current_sound._volume = $scope.volume/100;
 		console.log($scope.current_sound, 'Volume: ' + $scope.current_sound._volume);
 	}
-
+//Assign selected sound to nodes in sequence
 	$scope.assign = function (node){
 		var newsound = $scope.current_sound;
 		//For clarity
-		var node = node
-		if (newsound){
-			console.log("Node: " + node + ', sound: ' + newsound._src);
-		}
-		if(newsound == undefined){
-			console.log("Node: " + node);
-		}
-		//if key exists
-		if (sequence[node] != undefined && newsound){
-			sequence[node].push(newsound);
-		}
-		//if key doesn't exist
-		if (sequence[node] == undefined && newsound){
-			sequence[node] = [newsound];
-		}
+		var node = node;
+		var exists = false;
 		//Unassign values
-		// for (var i = 0; i < sequence[node].length; i++){
-		// 	if (sequence[node[i]] == newsound){
-		// 		console.log(sequence[node[i]])
-		// 		console.log('Removing note');
-		// 		sequence[node[i]].splice(newsound);
-		// 	}
-		// }
+		for (var i = 0; i < sequence[node].length; i++){
+			if (newsound == sequence[node][i]){
+				console.log("Duplicate: " + newsound)
+				sequence[node].splice(i, 1);
+				var exists = true;
+			}
+		}
+		if (exists == false){
+			if (newsound){
+				console.log("Node: " + node + ', sound: ' + newsound._src);
+			}
+			if(newsound == undefined){
+				console.log("Node: " + node);
+			}
+			//if key exists
+			if (sequence[node] != undefined && newsound){
+				sequence[node].push(newsound);
+			}
+			//if key doesn't exist
+			if (sequence[node] == undefined && newsound){
+				sequence[node] = [newsound];
+			}
+		}
+		console.log(exists)
+	}
+
+//Clear -- reestablishes base sequence
+	$scope.clear = function(){
+		sequence = {};
+		for (var i = 1; i <=16; i++){
+			sequence[i] = [];
+		}
+		$scope.stop()
+		$scope.currentBeat = 0;
 	}
 
 //Update values
@@ -81,9 +95,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 			}
 		}
 	}
-	$scope.updateTempo = function (){
-		// console.log($scope.tempo);
-	}
+
 	$scope.loop = function (){
 		clearInterval(playInterval);
 		$scope._playing = false;
@@ -106,7 +118,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 				count++;
 				$scope.currentBeat = count;
 				$scope.$apply();
-				console.log($scope.currentBeat);
+				// console.log($scope.currentBeat);
 				if (count == 17) {
 					count = 1;
 					$scope.isLooping = true;
@@ -132,7 +144,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 		clearInterval(playInterval);
 		count = 1;
 		$scope._playing = false;
-		console.log('Stopped playback')
+		$scope.currentBeat = 0;
 	}
 
 })
