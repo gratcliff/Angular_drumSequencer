@@ -52,37 +52,64 @@ button{
 		width: 66px;
 		box-shadow: 0px 4px 5px -3px rgba(0,0,0,0.75);
 	}
-	.circle { 
-		display: inline-block;
-		margin-left: 53px;
-		margin-top: 88px;
-		width: 8px;
-		height: 8px;
-		background-color: white; 
-		-moz-border-radius: 70px; 
-		-webkit-border-radius: 70px; 
-		border-radius: 4px;
+	.tracker{
+		margin-top: 4px;
 	}
-	.circle_red { 
-		display: inline-block;
-		margin-left: 53px;
-		margin-top: 88px;
-		width: 8px;
-		height: 8px;
-		background-color: red; 
-		-moz-border-radius: 70px; 
-		-webkit-border-radius: 70px; 
-		border-radius: 4px;
+	.kick_tracker{
+		margin-top: 2px;
+		display: block;
+		height:5px;
+		width: 30px;
+		background-color: #dce775;
+	}
+	.hTom_tracker{
+		margin-top: 2px;
+		display: block;
+		height:5px;
+		width: 30px;
+		background-color: #009688;
+	}
+	.lTom_tracker{
+		margin-top: 2px;
+		display: block;
+		height:5px;
+		width: 30px;
+		background-color: #ef6c00;
+	}
+	.snare_tracker{
+		margin-top: 2px;
+		display: block;
+		height:5px;
+		width: 30px;
+		background-color: #673ab7;
+	}
+	.clap_tracker{
+		margin-top: 2px;
+		display: block;
+		height:5px;
+		width: 30px;
+		background-color: #ffebee;
+	}
+	.hat_tracker{
+		margin-top: 2px;
+		display: block;
+		height:5px;
+		width: 30px;
+		background-color: #c2185b;
 	}
 		.head{
 			height:20px;
 			width:auto;
 			background: #009CAB;
 		}
+		.head_notSelect{
+			color:white;
+		}
+		.head_selected{
+			color:red;
+		}
 			.head p{
 				display: inline-block;
-				color: white;
-				/*text-align: center;*/
 				margin-left: 5px;
 			}
 

@@ -19,69 +19,78 @@
 		</div>
 		<div class='instrumentButtons'>
 			<div id="button" class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("kick")'>Kick<div style="background-color: #dce775" id='tab'></div></div>
-			<div id="button" class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("high_tom")'>H Tom<div style="background-color: #81c784" id='tab'></div></div>
+			<div id="button" class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("high_tom")'>H Tom<div style="background-color: #009688" id='tab'></div></div>
 			<div id="button" class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("low_tom")'>L Tom<div style="background-color: #ef6c00" id='tab'></div></div>
 			<div id="button" class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("snare")'>Snare<div style="background-color: #673ab7" id='tab'></div></div>
-			<div id="button" class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("clap")'>Clap<div style="background-color: #d50000" id='tab'></div></div>
+			<div id="button" class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("clap")'>Clap<div style="background-color: #ffebee" id='tab'></div></div>
 			<div id="button" class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("hi_hat")'>Hi Hat<div style="background-color: #c2185b" id='tab'></div></div>
 		</div>
-		<!-- <div class='instrumentModule'>
-			<div class='sidehead'>
-				<p>Others</p>
-			</div>
-			<button class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("goat")'>Goat</button>
-		</div> -->
 	</div>
 	<div id='sequencer'>
-		<!-- <p> {{row}}</p> -->
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(1)'>
-			<div class='head'><p>1</p></div>
-		<div ng-class="{circle: currentBeat != '1', circle_red: currentBeat == '1'}" ></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '1', head_selected: currentBeat == '1'}"><p>1</p></div>
+			<div ng-repeat= "visual in visualizations[1]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(2)' >
-			<div class='head'><p>2</p></div>
-		<div ng-class="{circle: currentBeat != '2', circle_red: currentBeat == '2'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '2', head_selected: currentBeat == '2'}"><p>2</p></div>
+			<div ng-repeat= "visual in visualizations[2]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(3)'>
-			<div class='head'><p>3</p></div>
-		<div ng-class="{circle: currentBeat != '3', circle_red: currentBeat == '3'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '3', head_selected: currentBeat == '3'}"><p>3</p></div>
+			<div ng-repeat= "visual in visualizations[3]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(4)'>
-			<div class='head'><p>4</p></div>
-		<div ng-class="{circle: currentBeat != '4', circle_red: currentBeat == '4'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '4', head_selected: currentBeat == '4'}"><p>4</p></div>
+			<div ng-repeat= "visual in visualizations[4]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(5)'>
-			<div class='head'><p>5</p></div>
-		<div ng-class="{circle: currentBeat != '5', circle_red: currentBeat == '5'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '5', head_selected: currentBeat == '5'}"><p>5</p></div>
+			<div ng-repeat= "visual in visualizations[5]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(6)'>
-			<div class='head'><p>6</p></div>
-		<div ng-class="{circle: currentBeat != '6', circle_red: currentBeat == '6'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '6', head_selected: currentBeat == '6'}"><p>6</p></div>
+			<div ng-repeat= "visual in visualizations[6]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(7)'>
-			<div class='head'><p>7</p></div>
-		<div ng-class="{circle: currentBeat != '7', circle_red: currentBeat == '7'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '7', head_selected: currentBeat == '7'}"><p>7</p></div>
+			<div ng-repeat= "visual in visualizations[7]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(8)'>
-			<div class='head'><p>8</p></div>
-		<div ng-class="{circle: currentBeat != '8', circle_red: currentBeat == '8'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '8', head_selected: currentBeat == '8'}"><p>8</p></div>
+			<div ng-repeat= "visual in visualizations[8]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(9)'>
-			<div class='head'><p>9</p></div>
-		<div ng-class="{circle: currentBeat != '9', circle_red: currentBeat == '9'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '9', head_selected: currentBeat == '9'}"><p>9</p></div>
+			<div ng-repeat= "visual in visualizations[9]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(10)'>
-			<div class='head'><p>10</p></div>
-		<div ng-class="{circle: currentBeat != '10', circle_red: currentBeat == '10'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '10', head_selected: currentBeat == '10'}"><p>10</p></div>
+			<div ng-repeat= "visual in visualizations[10]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(11)'>
-			<div class='head'><p>11</p></div>
-		<div ng-class="{circle: currentBeat != '11', circle_red: currentBeat == '11'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '11', head_selected: currentBeat == '11'}"><p>11</p></div>
+			<div ng-repeat= "visual in visualizations[11]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(12)'>
-			<div class='head'><p>12</p></div>
-		<div ng-class="{circle: currentBeat != '12', circle_red: currentBeat == '12'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '12', head_selected: currentBeat == '12'}"><p>12</p></div>
+			<div ng-repeat= "visual in visualizations[12]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(13)'>
-			<div class='head'><p>13</p></div>
-		<div ng-class="{circle: currentBeat != '13', circle_red: currentBeat == '13'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '13', head_selected: currentBeat == '13'}"><p>13</p></div>
+			<div ng-repeat= "visual in visualizations[13]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(14)'>
-			<div class='head'><p>14</p></div>
-		<div ng-class="{circle: currentBeat != '14', circle_red: currentBeat == '14'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '14', head_selected: currentBeat == '14'}"><p>14</p></div>
+			<div ng-repeat= "visual in visualizations[14]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(15)'>
-			<div class='head'><p>15</p></div>
-		<div ng-class="{circle: currentBeat != '15', circle_red: currentBeat == '15'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '15', head_selected: currentBeat == '15'}"><p>15</p></div>
+			<div ng-repeat= "visual in visualizations[15]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 		<div id='node' class='cyan lighten-1 waves-effect waves' ng-click='assign(16)'>
-			<div class='head'><p>16</p></div>
-		<div ng-class="{circle: currentBeat != '16', circle_red: currentBeat == '16'}"></div></div>
+			<div class='head' ng-class="{head_notSelect: currentBeat != '16', head_selected: currentBeat == '16'}"><p>16</p></div>
+			<div ng-repeat= "visual in visualizations[16]" class = 'tracker' ng-class="{kick_tracker: visual == 'kick', hTom_tracker: visual == 'high_tom', lTom_tracker: visual == 'low_tom', snare_tracker: visual == 'snare', clap_tracker: visual == 'clap', hat_tracker: visual == 'hi_hat'}"></div>
+		</div>
 	</div>
 	<div id = 'controls'>
 		<button class='btn cyan lighten-1' ng-click='play()'>Play</button><button class='btn cyan lighten-1' ng-click ='stop()'>Stop</button><button class='btn cyan lighten-1' ng-click ='clear()'>Clear Sequence</button>
@@ -90,7 +99,7 @@
 	<div id="modal1" class="modal">
     	<div class="modal-content">
       		<h4>Collaborative Music</h4>
-     		<p>This is a simple single page web app built with Node, Angular, and Socket.io. Clicking on a note node will add a sample and play it in sequence. Clicking again will remove it. Play with your friends! </p>
+     		<p>This is a simple single page web app built with Node, Angular, Materialize, and Socket.io. Clicking on a note node will add a sample and play it in sequence. Clicking again will remove it. Play with your friends! </p>
     	</div>
   	</div>
   	<p style='font-size:9pt; left: 88.5%; top:97%; position:fixed;'>Created by Gabriel Ratcliff </p>

@@ -1,20 +1,23 @@
 musicMaker.controller('MainController', function ($scope, $window, $location, $localStorage){
 //Create sequence
-	// $scope.rows = ['kick', 'snare', 'clap', 'h_tom', 'l_tom', 'hi_hat'];
+	//Sound container
 	var sequence = {};
+	//Key visualization container for angular reference
+	$scope.visualizations = {};
 	for (var i = 1; i <=16; i++){
 		sequence[i] = [];
+		$scope.visualizations[i] = [];
 	}
+
 //Establish playback parameters
 	var playInterval;
 	var count = 1;
+	var sound_name;
+	$scope.current_sound;
 	$scope.volume = 100;
 	$scope.tempo = 128;
 	$scope.currentBeat;
-	$scope.current_sound;
-	var sound_name;
 	$scope._playing = false;
-	$scope.error = "";
 	$scope.isLooping = false;
 
 //Load local sounds
@@ -45,16 +48,17 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 	}
 //Assign selected sound to nodes in sequence
 	$scope.assign = function (node){
-		console.log(sound_name)
 		var newsound = $scope.current_sound;
 		//For clarity
 		var node = node;
+
 		var exists = false;
 		//Unassign values
 		for (var i = 0; i < sequence[node].length; i++){
 			if (newsound == sequence[node][i]){
-				console.log("Duplicate: " + newsound)
+				// console.log("Duplicate: " + newsound)
 				sequence[node].splice(i, 1);
+				$scope.visualizations[node].splice(i, 1);
 				var exists = true;
 			}
 		}
@@ -69,20 +73,25 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 			//if key exists
 			if (sequence[node] != undefined && newsound){
 				sequence[node].push(newsound);
+				$scope.visualizations[node].push(sound_name);
 			}
 			//if key doesn't exist
 			if (sequence[node] == undefined && newsound){
 				sequence[node] = [newsound];
+				$scope.visualizations[node] = [sound_name];
 			}
 		}
-		console.log(exists)
+		// console.log(exists)
+		console.log($scope.visualizations)
 	}
 
 //Clear -- reestablishes base sequence
 	$scope.clear = function(){
 		sequence = {};
+		$scope.visualizations = {};
 		for (var i = 1; i <=16; i++){
 			sequence[i] = [];
+			$scope.visualizations[i] = [];
 		}
 		$scope.stop()
 		$scope.currentBeat = 0;
