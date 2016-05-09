@@ -56,7 +56,6 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 		//Unassign values
 		for (var i = 0; i < sequence[node].length; i++){
 			if (newsound == sequence[node][i]){
-				// console.log("Duplicate: " + newsound)
 				sequence[node].splice(i, 1);
 				$scope.visualizations[node].splice(i, 1);
 				var exists = true;
@@ -81,8 +80,6 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 				$scope.visualizations[node] = [sound_name];
 			}
 		}
-		// console.log(exists)
-		console.log($scope.visualizations)
 	}
 
 //Clear -- reestablishes base sequence
@@ -124,6 +121,8 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 				for (var i = 0; i < sequence[1].length; i++){
 					if (sequence[1][i]){
 						sequence[1][i].play();
+						console.log(count)
+						console.log(sequence[1][i])
 					}			
 				}
 			}
@@ -140,6 +139,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 				for (var i = 0; i < sequence[count].length; i++){
 					if (sequence[count][i]){
 						sequence[count][i].play();
+						console.log(sequence[count][i])
 					}			
 				}
 			}, (1000/$scope.tempo) * 30);
@@ -157,6 +157,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 		clearInterval(playInterval);
 		count = 1;
 		$scope._playing = false;
+		$scope.isLooping = false;
 		$scope.currentBeat = 0;
 	}
 
