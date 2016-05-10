@@ -12,7 +12,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 //Establish playback parameters
 	var playInterval;
 	var count = 1;
-	var sound_name;
+	$scope.sound_name;
 	$scope.current_sound;
 	$scope.volume = 100;
 	$scope.tempo = 128;
@@ -35,7 +35,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 
 //Select sound and play selected to user
 	$scope.sound = function (name){
-		sound_name = name;
+		$scope.sound_name = name;
 		_playing = true;
 		//change volume to current
 		howls['../beats/'+name+'.wav']._volume = $scope.volume/100;
@@ -72,12 +72,12 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 			//if key exists
 			if (sequence[node] != undefined && newsound){
 				sequence[node].push(newsound);
-				$scope.visualizations[node].push(sound_name);
+				$scope.visualizations[node].push($scope.sound_name);
 			}
 			//if key doesn't exist
 			if (sequence[node] == undefined && newsound){
 				sequence[node] = [newsound];
-				$scope.visualizations[node] = [sound_name];
+				$scope.visualizations[node] = [$scope.sound_name];
 			}
 		}
 	}
@@ -121,8 +121,6 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 				for (var i = 0; i < sequence[1].length; i++){
 					if (sequence[1][i]){
 						sequence[1][i].play();
-						console.log(count)
-						console.log(sequence[1][i])
 					}			
 				}
 			}
@@ -130,7 +128,6 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 				count++;
 				$scope.currentBeat = count;
 				$scope.$apply();
-				// console.log($scope.currentBeat);
 				if (count == 17) {
 					count = 1;
 					$scope.isLooping = true;
@@ -139,7 +136,6 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 				for (var i = 0; i < sequence[count].length; i++){
 					if (sequence[count][i]){
 						sequence[count][i].play();
-						console.log(sequence[count][i])
 					}			
 				}
 			}, (1000/$scope.tempo) * 30);
@@ -147,6 +143,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 		}
 		else if ($scope._playing == true){
 			count = 1;
+			$scope.isLooping = false;
 			$scope.loop();
 			return 'Already playing'
 		}
@@ -158,6 +155,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 		count = 1;
 		$scope._playing = false;
 		$scope.isLooping = false;
+		//set current beat out of range so it doesn't display
 		$scope.currentBeat = 0;
 	}
 
