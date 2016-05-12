@@ -7,7 +7,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
 		<script>
-			var musicMaker = angular.module('musicMaker', ['ngRoute','ngStorage', 'ui.materialize']);
+			var musicMaker = angular.module('musicMaker', ['ngRoute', 'ui.materialize', 'ngAnimate']);
 			$(document).ready(function() {
 				$('select').material_select();
 				$('.modal-trigger').leanModal({
@@ -16,14 +16,14 @@
       				in_duration: 300, 
       				out_duration: 200
    				});
+   
 			});
 		</script>
 		<script src="../bower_components/howler.js/howler.js"></script>
-		<script src="../bower_components/ngstorage/ngStorage.js"></script>
+		<script src="../bower_components/angular-animate/angular-animate.js"></script>
 		<script src="../bower_components/angular-materialize/angular-materialize.js"></script>
 		<script type="text/javascript" src="./js/config/routes.js"></script>
 		<script type="text/javascript" src="./js/materialize.js"></script>
-		<script type="text/javascript" src="./js/factories/music.js"></script>
 		<script type="text/javascript" src="./js/controllers/launch.js"></script>
 		<script type="text/javascript" src="./js/controllers/main.js"></script>
 	</head>

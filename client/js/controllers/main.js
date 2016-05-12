@@ -1,4 +1,4 @@
-musicMaker.controller('MainController', function ($scope, $window, $location, $localStorage){
+musicMaker.controller('MainController', function ($scope, $window, $location){
 //Create sequence
 	//Sound container
 	var sequence = {};
@@ -19,6 +19,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 	$scope.currentBeat;
 	$scope._playing = false;
 	$scope.isLooping = false;
+	$scope.clicked = true;
 
 //Load local sounds
 	var sounds = ['../beats/snare.wav', '../beats/clap.wav', '../beats/kick.wav', '../beats/high_tom.wav', '../beats/low_tom.wav', '../beats/hi_hat.wav', '../beats/goat.wav'];
@@ -35,6 +36,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 
 //Select sound and play selected to user
 	$scope.sound = function (name){
+		$scope.clicked = false
 		$scope.sound_name = name;
 		_playing = true;
 		//change volume to current
@@ -48,6 +50,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location, $l
 	}
 //Assign selected sound to nodes in sequence
 	$scope.assign = function (node){
+		$scope.clicked = false;
 		var newsound = $scope.current_sound;
 		//For clarity
 		var node = node;

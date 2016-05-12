@@ -14,8 +14,7 @@
     "body-parser": "latest",
     "express": "~4.2.0",
     "howler": "^1.1.29",
-    "moment": "^2.13.0",
-    "mongoose": "latest"
+    "moment": "^2.13.0"
   },
   "keywords": [
     "node",

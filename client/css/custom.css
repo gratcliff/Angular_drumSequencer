@@ -17,6 +17,18 @@ button{
 	margin-left: 55px;
 	margin-top: 10px;
 }
+.notice{
+	color:white;
+	font-size: 16pt;
+	margin-left: 50px;
+}
+	.notice.ng-leave {
+		transition: 0.75s linear all;
+		opacity: 1;
+	}
+	.notice.ng-leave.ng-leave-active{
+		opacity: 0;
+	}
 #controls{
 	display: block;
 }

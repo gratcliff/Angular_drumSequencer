@@ -1,9 +1,9 @@
 <div class='background2' ng-controller = 'MainController'>
 	<nav>
 		<div class = 'nav-wrapper red lighten-2'>
-			<p style='font-size:35px; margin-left:15px;' class='thin'>Current Collaborators:  </p>
-			 <a class="waves-effect waves-light btn modal-trigger red lighten-2" href="#modal1" modal>Info</a>
+			<p ng-if='clicked' class='notice'> Click on a sample to grab it, then click on a note to assign the sample to it!</p>
 		</div>
+		<a class="waves-effect waves-light btn modal-trigger red lighten-2" href="#modal1" modal>Info</a>
 	</nav>
 	<div id='instruments'>
 		<div class='sidehead'>
@@ -24,7 +24,6 @@
 			<div id="button" class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("snare")'>Snare<div style="background-color: #673ab7" id='tab'></div></div>
 			<div id="button" class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("clap")'>Clap<div style="background-color: #ffebee" id='tab'></div></div>
 			<div id="button" class="btn btn-small waves-effect waves-light red lighten-2" ng-click='sound("hi_hat")'>Hi Hat<div style="background-color: #c2185b" id='tab'></div></div>
-			<!-- <p>Currently selected: {{sound_name}}</p> -->
 		</div>
 	</div>
 	<div id='sequencer'>
@@ -100,7 +99,7 @@
 	<div id="modal1" class="modal">
     	<div class="modal-content">
       		<h4>Collaborative Music</h4>
-     		<p>This is a simple single page web app built with Node, Angular, Materialize, and Socket.io. Clicking on a note node will add a sample and play it in sequence. Clicking again will remove it. Play with your friends! </p>
+     		<p>This is a simple single page web app built with Node, Angular, and Materialize. Clicking on a note node will add a sample and play it in sequence. Clicking again will remove it. Create your own beat!</p>
     	</div>
   	</div>
   	<p style='font-size:9pt; left: 88.5%; top:97%; position:fixed;'>Created by Gabriel Ratcliff </p>
