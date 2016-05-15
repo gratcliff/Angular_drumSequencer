@@ -1,6 +1,6 @@
 {
   "name": "Angular_Sequencer",
-  "version": "0.0.1",
+  "version": "1.0.5",
   "engines": {
     "node": "5.9.1"
   },
@@ -10,15 +10,12 @@
   },
   "dependencies": {
     "angular-materialize": "latest",
-    "angular-moment": "^1.0.0-beta.5",
     "body-parser": "latest",
     "express": "~4.2.0",
-    "howler": "^1.1.29",
-    "moment": "^2.13.0"
+    "howler": "^1.1.29"
   },
   "keywords": [
     "node",
-    "heroku",
     "express"
   ],
   "license": "MIT",
