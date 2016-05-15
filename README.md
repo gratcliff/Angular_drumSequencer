@@ -1,7 +1,7 @@
 # Javascript Drum Sequencer
 [Drum sequencer](http://www.gaberatcliff.com) made with Howler.js, node, and angular.
 
-The project is still being built out/updated. Check back to see new additions.
+The project is still being built out/updated. Check back to see new additions in the future!.
 ### Description
 The app is a single-page front end drum sequencer made with angular. The sequencer was built using Angular's controller methods, although the functions could have just as easily been server side.
 Angular's scope and ng-click were used heavily to get and set data from the user.
