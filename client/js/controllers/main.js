@@ -22,7 +22,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location){
 	$scope.clicked = true;
 
 //Load local sounds
-	var sounds = ['../beats/snare.wav', '../beats/clap.wav', '../beats/kick.wav', '../beats/high_tom.wav', '../beats/low_tom.wav', '../beats/hi_hat.wav', '../beats/goat.wav'];
+	var sounds = ['../beats/snare.wav', '../beats/clap.wav', '../beats/kick.wav', '../beats/high_tom.wav', '../beats/low_tom.wav', '../beats/hi_hat.wav', '../beats/Bell.wav'];
 	var howls = {};
 	for (var i = 0; i < sounds.length; i++){
 		howls[sounds[i]] = new Howl({
