@@ -12,6 +12,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location){
 //Establish playback parameters
 	var playInterval;
 	var count = 1;
+	$scope.bars = 16;
 	$scope.sound_name;
 	$scope.current_sound;
 	$scope.volume = 100;
@@ -89,7 +90,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location){
 	$scope.clear = function(){
 		sequence = {};
 		$scope.visualizations = {};
-		for (var i = 1; i <=16; i++){
+		for (var i = 1; i <= $scope.bars; i++){
 			sequence[i] = [];
 			$scope.visualizations[i] = [];
 		}
@@ -131,7 +132,7 @@ musicMaker.controller('MainController', function ($scope, $window, $location){
 				count++;
 				$scope.currentBeat = count;
 				$scope.$apply();
-				if (count == 17) {
+				if (count == $scope.bars + 1) {
 					count = 1;
 					$scope.isLooping = true;
 					$scope.loop();
@@ -160,6 +161,27 @@ musicMaker.controller('MainController', function ($scope, $window, $location){
 		$scope.isLooping = false;
 		//set current beat out of range so it doesn't display
 		$scope.currentBeat = 0;
+	}
+//Add length
+	$scope.addBar = function () {
+		console.log($scope.bars);
+		if ($scope.bars == 16){
+			for (var i = 17; i <= 32; i++){
+				$scope.bars = 32;
+				sequence[i] = [];
+				$scope.visualizations[i] = [];
+			}
+		}
+		else if ($scope.bars == 32){
+			for (var i = 33; i <= 48; i++){
+				$scope.bars = 48;
+				sequence[i] = [];
+				$scope.visualizations[i] = [];
+			}
+		}
+		else {
+			$scope.error = "Cannot add anymore bars"
+		}
 	}
 
 })

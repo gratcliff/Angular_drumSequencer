@@ -50,11 +50,12 @@ button{
 		min-height: 100vh;
 	}
 #sequencer{
-	display: inline-block;
+	display:block;
+	width: 1111px;
 	margin-top: 50px;
 	margin-left: 50px;
 	background-color: white;
-	padding:5px;
+	padding:5px 2px 5px 5px;
 	box-shadow: 0px 4px 5px -3px rgba(0,0,0,0.75);
 }
 	#node{
@@ -62,6 +63,7 @@ button{
 		height: 120px;
 		width: 66px;
 		box-shadow: 0px 4px 5px -3px rgba(0,0,0,0.75);
+		margin-right: 3px;
 	}
 	.tracker{
 		margin-top: 4px;
